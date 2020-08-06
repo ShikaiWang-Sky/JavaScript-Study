@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        function qj() {
+            var x = 'x' + y;
+            console.log(x);
+            var y = 'y';
+        }
+
+        qj();
+
+        function qj2() {
+            var x = 1,
+                y = x + 1;
+                z, i;   //undefined
+
+            //之后随意用
+
+        }
+
+        var x = 'xxx';
+        alert(x);
+        alert(window.x);    //默认所有的全局变量，都会自动绑定在window对象下
+
+        window.alert(x);
+
+        var old_alert = window.alert;
+
+        //唯一全局变量
+        var WangApp = {};
+
+        //定义全局变量
+        WangApp.name = 'Wang';
+        WangApp.add = function (a, b) {
+            return a + b;
+        }
+
+        function add() {
+            for (var i = 0; i < 100; i++) {
+                console.log(i);
+            }
+            console.log(i + 1);     //问题：i 出了这个作用域还可以使用？
+        }
+
+    </script>
+
+</body>
+</html>

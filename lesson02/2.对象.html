@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        'use strict';
+        //定义了一个person对象，有4个属性
+        var person = {
+            name: "wang",
+            age: 3,
+            email: "xxxxxxxx@qq.com",
+            score: 95
+        }
+
+        var ages = [1, 2, 32131, 41413, 13414];
+        // ages.forEach(function (age){
+        //     console.log(age);
+        // });
+        //for(var index in object){}
+        for(var num in ages){
+            console.log(ages[num]);
+        }
+
+        // //学生的成绩，学生的名字
+        // var name = ["Tom", "Jack", "John"];
+        // var scores = [100, 90, 80];
+
+        var map = new Map([['Tom', 100], ['Jack', 90], ['John', 80]]);
+        var score = map.get('Tom');     //通过key获得value
+        map.set('admin', 60);
+        console.log(score);
+
+        var set = new Set([3, 1, 2, 4, 1]); //set可以去重
+        set.add(7);
+        set.delete(4);
+        console.log(set.has(3));
+
+        var arr = [3, 4, 5];
+        for (var x of arr){
+            console.log(x);
+        }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

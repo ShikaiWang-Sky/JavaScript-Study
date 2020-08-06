@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--MD5工具类-->
+    <script src="http://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+</head>
+<body>
+
+<!--表单绑定提交事件-->
+<!--onsubmit = 绑定一个提交检测的函数，true，false-->
+<!--将这个结果返回给表单，使用onsubmit接收，形式为return + 函数-->
+
+<form action="http://www.baidu.com" method="post" onsubmit="return aaa()">
+    <!--注意，表单中的数据显示在form Data中时，以键值对返回，因此，如果没有name属性，不会返回相应的数据-->
+    <p>
+        <span>用户名：</span><input type="text" id="username" name="username">
+    </p>
+    <!--因此，下面明文的密码删除name属性，不会返回明文的数据-->
+    <p>
+        <span>密码：</span><input type="password" id="inputPassword">
+    </p>
+
+    <input type="hidden" id="md5-password" name="password">
+
+    <!--绑定事件 onclick 被点击-->
+    <button type="submit">提交</button>
+
+</form>
+
+<script>
+    function aaa() {
+        let uName = document.getElementById('username');
+        let pwd = document.getElementById('inputPassword');
+        let md5Pwd = document.getElementById('md5-password');
+        //MD5算法
+        md5Pwd.value = md5(pwd.value);
+        //加密不要写下面一行的代码，这样提交的瞬间密码会变长（md5），使用上面的隐藏域的方法可以规避掉这个问题
+        //pwd.value = md5(pwd.value);
+
+        // 可以校验判断表单的内容，true就是通过提交，false就是阻止提交
+        return true;
+    }
+</script>
+
+</body>
+</html>
